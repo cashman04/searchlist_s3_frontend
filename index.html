@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Authors: 		Dan Cash & Cliff Shull
+Initial Date:	02/05/2017
+Last Edit:		02/05/2017
+Revision:		1.0.0 (Major/Minor/Hotfix)
+-->
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>searchlist.org</title>
+    <link rel="stylesheet" href="css/layout.css" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+	  <div class="jumbotron">
+        <h1>
+	      Welcome to Searchlist.org
+	    </h1>
+	    <p style="color:red">
+	      This site is currently under construction and probably isn't actually functional yet, but please check back later!
+	    </p>
+		
+        <form id="mysearch" enctype='application/json'>
+	  	  <div class="Row">
+	  	    <div id="titledivs">
+	  	  	  City:
+	        </div>
+	  	    <div id="inputdivs">
+	  	  	  <input type="text" name="city" placeholder="Kansas City" id="inputformatting">
+	  	    </div>
+	  	  </div>
+          <div class="Row">
+	  	    <div id="titledivs">
+	  	  	  Distance:
+	  	    </div>
+	  	    <div id="inputdivs">
+	  	  	  <input type="text" name="distance"placeholder="100 Miles" id="inputformatting">
+	  	    </div>
+	  	  </div>
+	  	  <div class="Row">
+	  	    <div id="titledivs">
+	  	  	  Search:
+	  	    </div>
+	  	    <div id="search-inputdiv">
+	  	  	  <input type="text" name="query" placeholder="Oculus Rift" id="searchinputformatting">
+	  	    </div>
+	  	    <div id="godiv">
+	  	  	  <button id="buttonformatting" onClick="submitRequestAPI()" type="button">
+	  	  	    Go!
+	  	      </button>
+	  	    </div>
+	  	  </div>
+	    </form>
+		
+      </div>
+    </div>
+	<div id="main">
+      <ul id="city_list"></ul>
+	</div>
+	<!-- Begin JAVASCRIPT -->
+	<script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/myjs.js"></script>
+	<!-- <script src="js/pusher.js"></script> -->
+	<!-- End JAVASCRIPT -->
+  </body> 
+</html>
