@@ -1,9 +1,8 @@
 deploy:
   provider: s3
-  access_key_id: AKIAJXJ25GBW66AZAENQ
-  secret_access_key:
-    secure: bPnvo4S/JEi2BdY5eLJJXrk9TqqDwcI+UO2d5G+IN7B6tJ+82R77UMh7KPdyBN2+xhsST3II4bLoclJfOPd50riAAGvFsjJF98m5sfT/9t3p7KBz3PaVaGUkrbPcryU3KOXVIwD1c43SrsO0bx0Br7yXQmSyXblT5l2nzC0ruRq3IrRfA3pU/Kp+JyV+LdtX0qYOC2iojaAAY+2wS0YyEGQSrDJuFTW45ZjP0NdCMSaT49yaakIovJ3FTBs6/lUkrJA8mcc1ohCC59nfit8k8i2IPYBdK2IzA0W1oNSxFgZ2t/P0mapJ7WLZykZvKCHhIjDFitOlqpB7ePGEXXXQs8USBl4WaxmMnRzqDYmvUI04rJHmeQaQ3nT5pRI2uB9rUQmjKw4B0ZH31LLYlkOUXRquuyuApyNLB10oq++qyi4kiZ6xjvI9RfQ2zd9pzco3DW2TY7mYvSUa4qqFRjZADyMN6t62l6dRqrHpdKu9wgz+4+2ygfn4iDhjKfdyrOO17yHo4AdWyC/z5NmfHlWyONZ1oUKb3FX5P3PrGiFJVUdgwhX7MnCoXkg7AQTWgfkGLP4xCjgJ+HBtDogxOeUIPrEiKsLvbVaXOeP6KI2Q525c9X85mYu+3UTaoK2ew29HQ/muwdLwSyCCME6RJs8bUoec5yxwIbAbJtNfx0QGhiE=
-  bucket: searchlist.org
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: $AWS_BUCKET_NAME 
   acl: public_read
   on:
     repo: cashman04/searchlist_s3_frontend
