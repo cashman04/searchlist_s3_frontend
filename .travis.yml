@@ -1,9 +1,9 @@
 deploy:
-  language: generic
+  install: skip
+  script: skip
   provider: s3
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: $AWS_BUCKET_NAME 
+  local_dir: searchlist.org
   acl: public_read
-  on:
-    repo: cashman04/searchlist_s3_frontend
