@@ -10,3 +10,5 @@ deploy:
   region: $AWS_REGION_NAME
   local_dir: searchlist.org
   acl: public_read
+  skip_cleanup: true
+
