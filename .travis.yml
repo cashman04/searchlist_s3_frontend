@@ -1,4 +1,5 @@
 deploy:
+  language: generic
   install: skip
   script: skip
   provider: s3
