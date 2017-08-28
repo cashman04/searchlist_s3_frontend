@@ -1,7 +1,8 @@
+language: generic
+install: skip
+script: skip
+
 deploy:
-  language: generic
-  install: skip
-  script: skip
   provider: s3
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
