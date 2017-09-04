@@ -13,5 +13,4 @@ deploy:
   skip_cleanup: true
 
 notifications:
-  slack: fort-kickass:$SLACK_KEY
-
+  slack: $SLACK_KEY
