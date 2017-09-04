@@ -3,6 +3,7 @@ install: skip
 script:
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
   - export REGION=$(if [ "$BRANCH" == "master" ]; then echo "prod"; elif [ "$BRANCH" == "cash" ]; then echo $BRANCH; elif [ "$BRANCH" == "cliff" ]; then echo $BRANCH; else echo "beta"; fi)
+  - sed -i 's/REGION/$REGION/g' searchlist.org/js/myjs.js
 deploy:
   provider: s3
   access_key_id: "$AWS_ACCESS_KEY_ID"
