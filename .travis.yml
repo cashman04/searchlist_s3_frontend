@@ -1,15 +1,19 @@
 language: generic
 install: skip
-script: skip
+script:
+  - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+  - export REGION=$(if [ "$BRANCH" == "master" ]; then echo "prod"; elif [ "$BRANCH" == "cash" ]; then echo $BRANCH; elif [ "$BRANCH" == "cliff" ]; then echo $BRANCH; else echo "beta"; fi)
 deploy:
   provider: s3
   access_key_id: "$AWS_ACCESS_KEY_ID"
   secret_access_key: "$AWS_SECRET_ACCESS_KEY"
-  bucket: "$AWS_BUCKET_NAME"
+  bucket: "${REGION}_searchlist_lambda_distance"
   region: "$AWS_REGION_NAME"
   local_dir: searchlist.org
   acl: public_read
   skip_cleanup: true
+  on:
+    all_branches: true
 notifications:
   slack:
     secure: IBnzD1IqIbC58DRm8UvA0UeGLU5NB1on58pARd1eMDh+fVThak1DykVvZroqFfPNSyWBiQvs31SI4/yDdKCZSXnF4XADwIpWNt89CFlsGXnQi2b30cC7obHkJBqhm1s3R5kYpQ/jif0WIrlDMu3xuIMQHOBECFWysd5lYSdqqge65ylhEs1MmHtQ3rm+bLdRt8jEZGNj+Rq+LG80aM+XkLIdJThgroNSUWE7bjiDxONOu5CJZAYdh1wGdX8FpmtaJorqGO9Tw2phP1/h8SWkh3JwA6flieI9ZZMQK3skLFGIiKvxGG+5zLQcDQSUUUufuEGGrYIh6y/BooPWa2b8Ce1oS/k2VXBp0VRWR9QYuI1Ej+IllWTsVObemZdEdAPc+t9Tr/KlBh+hVhlijvPUgKzrMJki8W37y+n/JRhZDYA12UiLJIwOIx5quZWGFHQdYobjnvIkhO94Sb5GAwZU2t099yrB6np1PG/W4wrpOO7IMJ7E5J8TaOZW9vfiKDVAmwzdYuhCU8EpQuCkFPk1q+2yjrsfvhu4wk6JaODEHbXxk+bnmyly1TBVXh6pobzxgTRXX4F3IOVcQBbMmKDMS4dCOzT6t5J/rvBfiePp8OJlf3B8awZjEHItkNksSee3uGS/8WuTCrV0anpwyb6TZRKTL5cOc+gDeNCjdybAajI=
