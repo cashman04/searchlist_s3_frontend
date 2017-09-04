@@ -12,3 +12,5 @@ deploy:
   acl: public_read
   skip_cleanup: true
 
+notifications:
+    slack: $SLACK_KEY
