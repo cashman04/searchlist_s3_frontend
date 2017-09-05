@@ -32,7 +32,7 @@ function submitRequestAPI() {
   $("ul#city_list").empty()
   $.ajax({
   type: "POST",
-  url: 'https://api.searchlist.org/REGION',
+  url: 'https://api.searchlist.org/distance/REGION',
   data: JSON.stringify(data)
 });
 };
