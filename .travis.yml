@@ -6,6 +6,9 @@ script:
   - echo $BRANCH  
   - echo $REGION
   - sed -i s/REGION/$REGION/g searchlist.org/js/myjs.js
+  - sed -i s/BUILDNUMBER/$TRAVIS_BUILD_NUMBER/g searchlist.org/index.html
+  - sed -i "s/LASTEDIT/$(date +"%m-%d-%Y %T")/g" searchlist.org/index.html
+  - sed -i s/REGION/$REGION/g searchlist.org/index.html
 deploy:
   provider: s3
   access_key_id: "$AWS_ACCESS_KEY_ID"
